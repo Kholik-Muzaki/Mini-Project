@@ -6,7 +6,7 @@ function FormKontak() {
             <form>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">
-                        Nama Lengkap
+                        Nama Lengkap :
                     </label>
                     <input
                         type="text"
