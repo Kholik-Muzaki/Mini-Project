@@ -1,14 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import LandingPage from "./pages/LandingPage/LandingPage";
+// import RegisterPage from "./pages/RegisterPage/RegisterPage";
+// import LoginPage from "./pages/LoginPage/LoginPage";
+// import LandingPage from "./pages/LandingPage/LandingPage";
+import KontakPage from "./pages/KontakPage/KontakPage";
+import TentangKami from "./pages/TentangKami/TentangKami";
 // import './App.css'
-// import Navbar from './components/Navbar/Navbar';
-// import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <>
-      <LandingPage />
+      {/* <LandingPage /> */}
+      {/* <RegisterPage /> */}
+      {/* <LoginPage /> */}
+      {/* <KontakPage  /> */}
+      <TentangKami />
     </>
   )
 }
