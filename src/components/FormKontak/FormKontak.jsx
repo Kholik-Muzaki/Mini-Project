@@ -16,7 +16,7 @@ function FormKontak() {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">
-                        Alamat Email
+                        Alamat Email :
                     </label>
                     <input
                         type="email"
