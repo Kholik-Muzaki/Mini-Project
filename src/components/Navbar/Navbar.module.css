@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    display: flex;
+}
+
+ul li:nth-child(1){
+    margin-left: 80px;
+}
+ul li {
+    margin-right: 80px;
+}
+
+button {
+    width: 228px;
+}
