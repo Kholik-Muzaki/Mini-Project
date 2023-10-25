@@ -43,7 +43,7 @@ function Navbar() {
                             </li>  
                         </ul>
                         {/* button login */}
-                        <button type="button" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-primary rounded-5">Login</button>
                     </div>
                 </div>
             </nav>
