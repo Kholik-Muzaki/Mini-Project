@@ -35,7 +35,7 @@ function FormKontak() {
                         />
                     </div>
                 </div>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary" style={{width: "100%"}}>
                     Submit
                 </button>
             </form>

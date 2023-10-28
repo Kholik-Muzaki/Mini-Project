@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Footer.module.css"
 
 function Footer() {
@@ -11,7 +12,7 @@ function Footer() {
                                 Wisata Yuk
                             </h6>
                             <p id="desc" className="lh-3">
-                            Wisata Yuk adalah website untuk memberikan rekomendasi wisata dan juga mengupload tempat wisata .website ini dibuat guna memenuhi tugas mini project studi independen dari mitra alterra
+                                Wisata Yuk adalah website untuk memberikan rekomendasi wisata dan juga mengupload tempat wisata .website ini dibuat guna memenuhi tugas mini project studi independen dari mitra alterra
                             </p>
                         </div>
                         <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 menu">
@@ -19,24 +20,32 @@ function Footer() {
                                 Menu Wisata Yuk
                             </h6>
                             <p>
-                                <a href="#!" className="text-reset">
-                                    Beranda
-                                </a>
+                                <Link to={"/"}>
+                                    <a href="#!" className="text-reset">
+                                        Beranda
+                                    </a>
+                                </Link>
                             </p>
                             <p>
-                                <a href="#!" className="text-reset text-decoration-none">
-                                    Destinasi
-                                </a>
+                                <Link to={"/destinasi"}>
+                                    <a href="#!" className="text-reset text-decoration-none">
+                                        Destinasi
+                                    </a>
+                                </Link>
                             </p>
                             <p>
-                                <a href="#!" className="text-reset">
-                                    Tentang Kami
-                                </a>
+                                <Link to={"/tentangkami"}>
+                                    <a href="#!" className="text-reset">
+                                        Tentang Kami
+                                    </a>
+                                </Link>
                             </p>
                             <p>
-                                <a href="#!" className="text-reset">
-                                    Kontak
-                                </a>
+                                <Link to={"/kontak"}>
+                                    <a href="#!" className="text-reset">
+                                        Kontak
+                                    </a>
+                                </Link>
                             </p>
                         </div>
                         <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
