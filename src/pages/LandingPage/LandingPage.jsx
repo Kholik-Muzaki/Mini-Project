@@ -4,6 +4,8 @@ import "./LandingPage.module.css"
 import hero from "../../assets/img/hero1.png";
 import hero2 from "../../assets/img/hero2.png";
 import hero3 from "../../assets/img/hero3.png"
+import "animate.css";
+
 
 function LandingPage() {
     return (

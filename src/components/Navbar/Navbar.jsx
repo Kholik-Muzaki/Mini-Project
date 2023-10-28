@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Navbar.module.css";
 
 function Navbar() {
@@ -5,9 +6,11 @@ function Navbar() {
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
                 <div className="container">
-                    <a className="navbar-brand fw-bold" href="#">
-                        Wisata Yuk
-                    </a>
+                    <Link to={"/"}>
+                        <a className="navbar-brand fw-bold" href="#">
+                            Wisata Yuk
+                        </a>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -22,33 +25,41 @@ function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">
-                                    Beranda
-                                </a>
+                                <Link to={"/"}>
+                                    <a className="nav-link active" aria-current="page" href="#">
+                                        Beranda
+                                    </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    Destinasi
-                                </a>
+                                <Link to={"/destinasi"}>
+                                    <a className="nav-link" href="#">
+                                        Destinasi
+                                    </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    Tentang Kami
-                                </a>
+                                <Link to={"/tentangkami"}>
+                                    <a className="nav-link" href="#">
+                                        Tentang Kami
+                                    </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    Kontak
-                                </a>
-                            </li>  
+                                <Link to={"/kontak"}>
+                                    <a className="nav-link" href="#">
+                                        Kontak
+                                    </a>
+                                </Link>
+                            </li>
                         </ul>
                         {/* button login */}
-                        <button type="button" class="btn btn-primary rounded-5">Login</button>
+                        <Link to={"/login"}>
+                            <button type="button" class="btn btn-primary rounded-5">Login</button>
+                        </Link>
                     </div>
                 </div>
             </nav>
-
-
         </>
     )
 }
