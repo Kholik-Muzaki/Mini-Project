@@ -21,30 +21,30 @@ function Footer() {
                             </h6>
                             <p>
                                 <Link to={"/"}>
-                                    <a href="#!" className="text-reset">
+                                    
                                         Beranda
-                                    </a>
+                                    
                                 </Link>
                             </p>
                             <p>
                                 <Link to={"/destinasi"}>
-                                    <a href="#!" className="text-reset text-decoration-none">
+                                    
                                         Destinasi
-                                    </a>
+                                    
                                 </Link>
                             </p>
                             <p>
                                 <Link to={"/tentangkami"}>
-                                    <a href="#!" className="text-reset">
+                                    
                                         Tentang Kami
-                                    </a>
+                                    
                                 </Link>
                             </p>
                             <p>
                                 <Link to={"/kontak"}>
-                                    <a href="#!" className="text-reset">
+                                    
                                         Kontak
-                                    </a>
+                                    
                                 </Link>
                             </p>
                         </div>

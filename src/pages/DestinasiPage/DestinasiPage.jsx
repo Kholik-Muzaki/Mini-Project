@@ -2,6 +2,7 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import toba from "../../assets/img/toba.jpeg"
 import CardDestinasi from "../../components/CardDestinasi/CardDestinasi";
+import { Link } from "react-router-dom";
 
 function DestinasiPage() {
     return (
@@ -30,8 +31,26 @@ function DestinasiPage() {
                     </div>
                 </div>
             </div>
-            
+
             <CardDestinasi />
+
+            <div className="container mt-5">
+                <div className="row">
+                    <div className="col">
+                        <h2 className="mt-3 text-center">Berbagi Rekomendasi Tempat Wisata</h2>
+                        <p className="text-center">Ingin berbagi rekomendasi tempat wisata? Yuk bagikan tempat wisata terbaikmu melalui tombol di bawah ini</p>
+                    </div>
+                </div>
+                <div className="row mt-5">
+                    <div className="col text-center">
+                        <Link to={"/addPostingan"}>
+                            <button type="button" className="btn btn-outline-primary" style={{
+                                width: "50%"
+                            }}>Berbagi Rekomendasi Object Wisata</button>
+                        </Link>
+                    </div>
+                </div>
+            </div>
 
             <Footer />
         </>
