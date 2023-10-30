@@ -87,7 +87,7 @@ export const APIDestination = {
   //UPDATE or EDIT destination
   updateDestination: async (id, data) => {
     try {
-      const result = await axios.put(`${APIURL}/destination/${id}, data`);
+      const result = await axios.put(`${APIURL}/destination/${id}`, data);
       return result.data;
     } catch (error) {
       if (error instanceof AxiosError) {

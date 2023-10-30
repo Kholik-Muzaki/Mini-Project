@@ -1,9 +1,3 @@
-// import Borobudur from "../../assets/img/BorobudurCard.jpeg"
-// import DanauToba from "../../assets/img/DanauToba.jpg"
-// import Keraton from "../../assets/img/Keraton.jpeg"
-// import RajaAmpat from "../../assets/img/RajaAmpat.jpeg"
-// import LabuanBajo from "../../assets/img/LabuanBajo.jpeg"
-// import Pangandaran from "../../assets/img/Pangandaran.jpeg"
 import { fetchGetDestinations, selectDestinations } from "../../Store/getDestinationSlice/getDestinationSlice"
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
@@ -79,14 +73,14 @@ function CardDestinasi() {
                                                 Lihat Detail
                                             </button>
                                         </Link>
-                                        {/* <Link to={`/detailwisata/${destination.id}`}> */}
-                                        <button type="button" className="btn btn-outline-success text-center mt-3" style={{
-                                            width: "100%"
-                                        }}>
-                                            Edit
-                                        </button>
-                                        {/* </Link> */}
-                                        {/* <Link to={`/detailwisata/${destination.id}`}> */}
+                                        <Link to={`/updatepostingan/${destination.id}`}>
+                                            <button type="button" className="btn btn-outline-success text-center mt-3" style={{
+                                                width: "100%"
+                                            }}>
+                                                Edit
+                                            </button>
+                                        </Link>
+
                                         <button
                                             type="button"
                                             className="btn btn-outline-danger text-center mt-3"
@@ -98,7 +92,7 @@ function CardDestinasi() {
                                             }}>
                                             Hapus Destinasi
                                         </button>
-                                        {/* </Link> */}
+
                                     </div>
                                 </div>
                             </div>

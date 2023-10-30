@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase";
+import { useAuth } from "../../config/AuthContext";
 
 function FormLogin() {
+
+    const { login } = useAuth();
+
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -24,12 +28,13 @@ function FormLogin() {
         try {
             const { email, password } = formData;
             await signInWithEmailAndPassword(auth, email, password);
-            alert("login berhasil");
+            alert("Login berhasil");
+            login(); // Panggil fungsi login untuk mengubah status login
             navigate("/");
         } catch (error) {
             console.error("Login error: ", error);
         }
-    };
+    }
 
     return (
         <form onSubmit={handleLogin}>

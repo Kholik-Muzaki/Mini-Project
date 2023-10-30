@@ -10,25 +10,6 @@ const initialState = {
     data: null,
 };
 
-// const deleteDestinationSlice = createSlice({
-//     name: "destinations",
-//     initialState,
-//     extraReducers: (builder) => {
-//         builder.addCase("fetch/deleteDestination/pending", (state) => {
-//             state.status = "loading";
-//             state.message = "";
-//         });
-//         builder.addCase("fetch/deleteDestination/fulfilled", (state, { payload }) => {
-//             state.status = "success";
-//             state.data = payload;
-//         });
-//         builder.addCase("fetch/deleteDestination/rejected", (state, { error }) => {
-//             state.status = "failed";
-//             state.data = error.stack;
-//         });
-//     },
-// });
-
 const deleteDestinationSlice = createSlice({
     name: "destinations",
     initialState,

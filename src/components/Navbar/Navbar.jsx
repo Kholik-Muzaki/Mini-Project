@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
 import "./Navbar.module.css";
+import { useAuth } from "../../config/AuthContext";
 
 function Navbar() {
+
+    const { isLoggedIn, login, logout } = useAuth();
+
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
                 <div className="container">
                     <Link to={"/"}>
-                        
-                            Wisata Yuk
-                       
+
+                        Wisata Yuk
+
                     </Link>
                     <button
                         className="navbar-toggler"
@@ -26,37 +30,53 @@ function Navbar() {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link to={"/"}>
-                                    
-                                        Beranda
-                                   
+
+                                    Beranda
+
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to={"/destinasi"}>
-                                    
-                                        Destinasi
-                                    
+
+                                    Destinasi
+
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to={"/tentangkami"}>
-                                    
-                                        Tentang Kami
-                                    
+
+                                    Tentang Kami
+
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to={"/kontak"}>
-                                    
-                                        Kontak
-                                    
+
+                                    Kontak
+
                                 </Link>
                             </li>
                         </ul>
                         {/* button login */}
-                        <Link to={"/login"}>
-                            <button type="button" className="btn btn-primary rounded-5">Login</button>
-                        </Link>
+
+                        {isLoggedIn ? (
+                            <button
+                                onClick={logout}
+                                className="btn btn-outline-danger rounded-5"
+                                type="buton"
+                            >
+                                Logout
+                            </button>
+                        ) : (
+                            <Link to="/login">
+                                <button
+                                    className="btn btn-outline-primary rounded-5"
+                                    type="buton"
+                                >
+                                    Login
+                                </button>
+                            </Link>
+                        )}
                     </div>
                 </div>
             </nav>

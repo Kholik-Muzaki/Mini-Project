@@ -13,6 +13,7 @@ import PostinganSaya from "./pages/PostinganSaya/PostinganSaya";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from "react-redux";
 import store from "../src/Store/index"
+import { AuthProvider } from "../src/config/AuthContext";
 
 
 
@@ -21,22 +22,24 @@ import store from "../src/Store/index"
 function App() {
   return (
     <>
-      <Provider store={store}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/kontak" element={<KontakPage />} />
-            <Route path="/tentangkami" element={<TentangKami />} />
-            <Route path="/destinasi" element={<DestinasiPage />} />
-            <Route path="/detailwisata/:id" element={<DetailWisata />} />
-            <Route path="/addpostingan" element={<AddPostinganpage />} />
-            <Route path="/updatepostingan" element={<UpdatePostinganpage />} />
-            <Route path="/postingansaya" element={<PostinganSaya />} />
-          </Routes>
-        </BrowserRouter>
-      </Provider>
+      <AuthProvider>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/kontak" element={<KontakPage />} />
+              <Route path="/tentangkami" element={<TentangKami />} />
+              <Route path="/destinasi" element={<DestinasiPage />} />
+              <Route path="/detailwisata/:id" element={<DetailWisata />} />
+              <Route path="/addpostingan" element={<AddPostinganpage />} />
+              <Route path="/updatepostingan/:id" element={<UpdatePostinganpage />} />
+              <Route path="/postingansaya" element={<PostinganSaya />} />
+            </Routes>
+          </BrowserRouter>
+        </Provider>
+      </AuthProvider>
 
     </>
   )

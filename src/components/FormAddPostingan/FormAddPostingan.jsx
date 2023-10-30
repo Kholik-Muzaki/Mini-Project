@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchPostDestination } from "../../Store/createDestinationSlice/createDestinationSlice";
 
+
 function FormAddPostingan() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -77,6 +78,8 @@ function FormAddPostingan() {
             [name]: value,
         });
     };
+
+
     return (
         <form onSubmit={handleSubmit}>
             <div className="mb-3">
