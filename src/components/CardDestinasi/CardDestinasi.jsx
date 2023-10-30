@@ -90,7 +90,7 @@ function CardDestinasi() {
                                             style={{
                                                 width: "100%"
                                             }}>
-                                            Hapus Destinasi
+                                            Hapus Destinasii
                                         </button>
 
                                     </div>
