@@ -1,27 +1,43 @@
 import React, { useState } from "react";
 import TextArea from "../../components/ChatAi/TextArea";
-import OpenAI from "openai";
-import { ColorRing } from "react-loader-spinner";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { ThreeDots } from "react-loader-spinner";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const ChatAI = () => {
-    const [command, setCommand] = useState("");
+    const [question, setQuestion] = useState("");
     const [loading, setLoading] = useState(false);
-    const [result, setResult] = useState("");
-
-    const openai = new OpenAI({
-        apiKey: "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",
-        dangerouslyAllowBrowser: true,
-    });
+    const [answer, setAnswer] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        const res = await openai.chat.completions.create({
-            messages: [{ role: "system", content: command }],
-            model: "gpt-3.5-turbo",
-        });
-        setResult(res.choices[0].message.content);
+
+        const apiKey = "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";
+
+        try {
+            const response = await fetch("https://api.openai.com/v1/engines/gpt-3.5-turbo/completions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${apiKey}`,
+                },
+                body: JSON.stringify({
+                    prompt: `Tentang pariwisata di ${question}`,
+                    max_tokens: 100, // Sesuaikan dengan jumlah token maksimum yang Anda inginkan
+                    temperature: 0.7, // Atur suhu lebih rendah untuk respons yang lebih fokus
+                }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setAnswer(data.choices[0].text);
+            } else {
+                console.error("Gagal mengirim permintaan ke OpenAI:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Terjadi kesalahan:", error);
+        }
+
         setLoading(false);
     };
 
@@ -32,11 +48,11 @@ const ChatAI = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="input-group mb-3">
                             <TextArea
-                                name="command"
-                                id="command"
-                                value={command}
-                                onChange={(e) => setCommand(e.target.value)}
-                                placeholder="Masukkan perintah..."
+                                name="question"
+                                id="question"
+                                value={question}
+                                onChange={(e) => setQuestion(e.target.value)}
+                                placeholder="Tanyakan sesuatu tentang wisata..."
                                 className="form-control"
                             />
                             <button
@@ -44,25 +60,17 @@ const ChatAI = () => {
                                 className="btn btn-primary"
                                 disabled={loading}
                             >
-                                {loading ? "Loading..." : "Submit Text"}
+                                {loading ? "Loading..." : "Kirim Pertanyaan"}
                             </button>
                         </div>
                     </form>
                     {loading ? (
                         <div className="text-center">
-                            <ColorRing
-                                visible={true}
-                                height={80}
-                                width={80}
-                                ariaLabel="blocks-loading"
-                                wrapperStyle={{}}
-                                wrapperClass="blocks-wrapper"
-                                colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
-                            />
+                            <ThreeDots color="blue" height={100} width={100} />
                         </div>
                     ) : (
                         <div>
-                            <p>{result}</p>
+                            <p>{answer}</p>
                         </div>
                     )}
                 </div>
