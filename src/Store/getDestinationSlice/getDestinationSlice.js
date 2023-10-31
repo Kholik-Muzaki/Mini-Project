@@ -1,8 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { APIDestination } from "../../api/ApiDestination";
 
-export const fetchGetDestinations = createAsyncThunk(
-  "fetch/getDestinations", APIDestination.getDestination
+export const fetchGetDestinations = createAsyncThunk("fetch/getDestinations", APIDestination.getDestination
 );
 
 const initialState = {

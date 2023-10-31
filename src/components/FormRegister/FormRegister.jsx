@@ -27,6 +27,8 @@ function FormRegister() {
         e.preventDefault();
         if (formData.password !== formData.passwordConfirm) {
             setMessage("Kata Sandi dan Konfirmasi Kata Sandi tidak cocok");
+        } else if (!formData.email || !formData.name || !formData.telephone || !formData.password) {
+            setMessage("Semua bidang harus diisi");
         } else {
             try {
                 const { email, password } = formData;
