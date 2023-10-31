@@ -1,58 +1,43 @@
 import React, { useState } from "react";
-import TextArea from "../../components/ChatAi/TextArea";
+import TextArea from "../../../src/components/ChatAi/TextArea";
+import OpenAI from "openai";
 import { ThreeDots } from "react-loader-spinner";
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ChatAI = () => {
-    const [question, setQuestion] = useState("");
+    const [command, setCommand] = useState("");
     const [loading, setLoading] = useState(false);
-    const [answer, setAnswer] = useState("");
+    const [result, setResult] = useState("");
+
+    const openai = new OpenAI({
+        apiKey: "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",
+        dangerouslyAllowBrowser: true,
+    });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-
-        const apiKey = "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";
-
-        try {
-            const response = await fetch("https://api.openai.com/v1/engines/gpt-3.5-turbo/completions", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${apiKey}`,
-                },
-                body: JSON.stringify({
-                    prompt: `Tentang pariwisata di ${question}`,
-                    max_tokens: 100, // Sesuaikan dengan jumlah token maksimum yang Anda inginkan
-                    temperature: 0.7, // Atur suhu lebih rendah untuk respons yang lebih fokus
-                }),
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                setAnswer(data.choices[0].text);
-            } else {
-                console.error("Gagal mengirim permintaan ke OpenAI:", response.statusText);
-            }
-        } catch (error) {
-            console.error("Terjadi kesalahan:", error);
-        }
-
+        const res = await openai.chat.completions.create({
+            messages: [{ role: "system", content: command }],
+            model: "gpt-3.5-turbo",
+        });
+        setResult(res.choices[0].message.content);
         setLoading(false);
     };
 
     return (
         <div className="container mt-5">
+            <h2 className="fw-bold text-center mb-4">Chat AI</h2>
             <div className="row">
                 <div className="col mx-auto">
                     <form onSubmit={handleSubmit}>
                         <div className="input-group mb-3">
                             <TextArea
-                                name="question"
-                                id="question"
-                                value={question}
-                                onChange={(e) => setQuestion(e.target.value)}
-                                placeholder="Tanyakan sesuatu tentang wisata..."
+                                name="command"
+                                id="command"
+                                value={command}
+                                onChange={(e) => setCommand(e.target.value)}
+                                placeholder="Masukkan perintah..."
                                 className="form-control"
                             />
                             <button
@@ -60,17 +45,26 @@ const ChatAI = () => {
                                 className="btn btn-primary"
                                 disabled={loading}
                             >
-                                {loading ? "Loading..." : "Kirim Pertanyaan"}
+                                {loading ? "Loading..." : "Submit Text"}
                             </button>
                         </div>
                     </form>
                     {loading ? (
                         <div className="text-center">
-                            <ThreeDots color="blue" height={100} width={100} />
+                            <ThreeDots
+                                height="80"
+                                width="80"
+                                radius="9"
+                                color="blue"
+                                ariaLabel="three-dots-loading"
+                                wrapperStyle={{}}
+                                wrapperClassName=""
+                                visible={true}
+                            />
                         </div>
                     ) : (
                         <div>
-                            <p>{answer}</p>
+                            <p>{result}</p>
                         </div>
                     )}
                 </div>
