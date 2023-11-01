@@ -4,7 +4,7 @@ import toba from "../../assets/img/toba.jpeg"
 import CardDestinasi from "../../components/CardDestinasi/CardDestinasi";
 import { Link } from "react-router-dom";
 import ChatAiPage from "../ChatAiPage/ChatAiPage"
-import uploadImg from "../../assets/img/uploadImg.svg"
+import upload from "../../assets/img/uploadImg.svg"
 import chatBot from "../../assets/img/chatBot.svg"
 
 function DestinasiPage() {
@@ -50,7 +50,7 @@ function DestinasiPage() {
                         </Link>
                     </div>
                     <div className="col-5 right">
-                        <img src={uploadImg} alt="" />
+                        <img src={upload} alt="" />
                     </div>
                 </div>
             </div >

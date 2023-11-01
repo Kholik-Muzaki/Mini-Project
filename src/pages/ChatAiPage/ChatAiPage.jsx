@@ -10,7 +10,7 @@ const ChatAI = () => {
     const [result, setResult] = useState("");
 
     const openai = new OpenAI({
-        apiKey: "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",
+        apiKey: import.meta.env.VITE_URL_OPENAI,
         dangerouslyAllowBrowser: true,
     });
 

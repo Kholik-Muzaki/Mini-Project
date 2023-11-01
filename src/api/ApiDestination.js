@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 
-const APIURL = "https://653cfbc0d5d6790f5ec87a15.mockapi.io/destination";
+const APIURL = import.meta.env.VITE_URL_MOCKAPI
 
 export const APIDestination = {
   //GET all destination
