@@ -17,12 +17,29 @@ const ChatAI = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        const res = await openai.chat.completions.create({
-            messages: [{ role: "system", content: command }],
-            model: "gpt-3.5-turbo",
-        });
-        setResult(res.choices[0].message.content);
-        setLoading(false);
+
+        try {
+            const res = await openai.chat.completions.create({
+                messages: [
+                    {
+                        role: "system",
+                        content:
+                            "Halo! Saya adalah ChatBot Wisata, asisten khusus untuk pertanyaan seputar pariwisata. Silakan tanyakan tentang destinasi wisata, lokasi wisata, atau informasi terkait pariwisata. Saya akan dengan senang hati memberikan informasi seputar pariwisata."
+                    },
+                    {
+                        role: "user",
+                        content: command
+                    }
+                ],
+                model: "gpt-3.5-turbo",
+            });
+            setResult(res.choices[0].message.content);
+        } catch (error) {
+            console.error("Error fetching AI response:", error);
+            setResult("Terjadi kesalahan saat mengambil jawaban dari AI.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
