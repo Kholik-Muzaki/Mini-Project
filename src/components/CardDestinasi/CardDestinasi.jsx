@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { ThreeCircles } from 'react-loader-spinner'
 import { Link } from "react-router-dom";
 import { fetchDeleteDestination } from "../../Store/deleteDestinationSlice/deleteDestinationSlice";
+import notFoundImage from "../../assets/img/notFound.png";
 
 
 function CardDestinasi() {
@@ -61,7 +62,13 @@ function CardDestinasi() {
                                     width: "18rem",
                                     height: "100%"
                                 }}>
-                                    <img src={destination.foto} className="card-img-top" alt="..." />
+                                    <img
+                                        src={destination.foto} 
+                                        className="card-img-top" 
+                                        alt="gambar tidak ditemukan"
+                                        onError={(e) => {
+                                            e.target.src = notFoundImage;
+                                        }} />
                                     <div className="card-body">
                                         <p className="card-text text-center fw-bold">
                                             {destination.judul}
