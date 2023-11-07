@@ -87,7 +87,7 @@ function LandingPage() {
                         <p className="lh-lg text-center">Video dibawah dibuat oleh Pesona Indonesia dalam rangka merayakan hari Pariwisata <br />
                             dunia menampilkan keindahan alam dan keberagaman budaya yang dimiliki Indonesia!</p>
                         <div className="embed-responsive embed-responsive-16by9">
-                            <iframe width="100%" height="600px" src="https://www.youtube.com/embed/0kEnZN_WlgU" frameborder="0" allowfullscreen></iframe>
+                            <iframe width="100%" height="600px" src="https://www.youtube.com/embed/0kEnZN_WlgU" frameBorder="0" allowFullScreen></iframe>
                         </div>
 
                     </div>

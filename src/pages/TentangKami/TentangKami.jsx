@@ -50,7 +50,7 @@ function TentangKami() {
                 <div className="row d-flex justify-content-between">
                     <div className="col-3 bg-primary rounded-2 text-light text-center pb-2 pt-2">
                         <h4>300+</h4>
-                        <p className="text-center">Tempat wisata di Indonesia</p>
+                        <p className="text-center">Tempat wisata di Indonesiaa</p>
                     </div>
                     <div className="col-4 bg-primary rounded-2 text-light text-center pb-2 pt-2">
                         <h4>2.2jt+</h4>
