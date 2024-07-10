@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ChatAiPage from "../ChatAiPage/ChatAiPage"
 import upload from "../../assets/img/uploadImg.svg"
 import chatBot from "../../assets/img/chatBot.svg"
+import './DestinasiPage.css'
 
 function DestinasiPage() {
     return (
@@ -38,9 +39,9 @@ function DestinasiPage() {
             <CardDestinasi />
             <hr />
 
-            <div className="container mt-5">
-                <div className="row">
-                    <div className="col-7 left my-auto">
+            <div className="container mt-5 berbagi-rekomendasi">
+                <div className="row row-rekomendasi">
+                    <div className="col-7">
                         <h2 className="mt-3 text-primary">Berbagi Rekomendasi Tempat Wisata</h2>
                         <p>Ingin berbagi rekomendasi tempat wisata? Yuk bagikan tempat wisata terbaikmu melalui tombol di bawah ini</p>
                         <Link to={"/addPostingan"}>
@@ -49,7 +50,7 @@ function DestinasiPage() {
                             }}>Berbagi Rekomendasi Object Wisata</button>
                         </Link>
                     </div>
-                    <div className="col-5 right">
+                    <div className="col-5">
                         <img src={upload} alt="" />
                     </div>
                 </div>

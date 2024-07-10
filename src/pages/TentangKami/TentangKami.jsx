@@ -2,6 +2,7 @@ import Navbar from "../../components/Navbar/Navbar"
 import toba from "../../assets/img/toba.jpeg"
 import tentangImg from "../../assets/img/tentang.svg"
 import Footer from "../../components/Footer/Footer"
+import CountUp from 'react-countup';
 
 function TentangKami() {
     return (
@@ -49,18 +50,24 @@ function TentangKami() {
             <div className="container mt-5">
                 <div className="row d-flex justify-content-between">
                     <div className="col-3 bg-primary rounded-2 text-light text-center pb-2 pt-2">
-                        <h4>300+</h4>
+                        <h4>
+                            <CountUp end={300} start={0} duration={2} />
+                        </h4>
                         <p className="text-center">Tempat wisata di Indonesiaa</p>
                     </div>
                     <div className="col-4 bg-primary rounded-2 text-light text-center pb-2 pt-2">
-                        <h4>2.2jt+</h4>
+                        <h4>
+                            <CountUp end={600} start={0} duration={2} />
+                        </h4>
                         <p className="text-center">wisatawan berkunjung</p>
                     </div>
                     <div className="col-3 bg-primary rounded-2 text-light text-center pb-2 pt-2">
-                        <h4>4.9</h4>
+                        <h4>
+                        <CountUp end={4.9} start={0} duration={2}/>
+                        </h4>
                         <p className="text-center">Rating tempat wisata</p>
                     </div>
-                    
+
                 </div>
             </div>
             <Footer />
